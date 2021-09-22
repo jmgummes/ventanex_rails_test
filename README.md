@@ -9,7 +9,7 @@ rails s
 ```
 
 # Test
-1. Commit code to your repository at start
+1. Commit code to your repository at start(THIS IS IMPORTANT) and make sure to only take around an hour. This test is more about a feel of where you are at and less if you can complete everything.
 2. Make the create button work and shows a form that allows a user to enter nickname, account number, and account type
 3. Implement Account Class to read xml file(assets/xml/loan.xml) and find the loan number and borrower name in the xml to be displayed in pay_accounts/index.html.erb(can be placed anyhwhere in the index file)
 4. Use javascript/jQuery to connect the hide button. The button should replace the all the characters except the last 4, with *.
