@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_06_12_160242) do
 
-  create_table "pay_accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "pay_accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname"
     t.string "account_number"
     t.integer "account_type"
