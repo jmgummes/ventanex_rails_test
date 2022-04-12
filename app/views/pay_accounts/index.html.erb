@@ -2,6 +2,34 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3>
+        Loan Account
+      </h3>
+    </div>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td>Loan Number</td>
+              <td><%= @loan_account.loan_number %></td>
+            </tr>
+            <tr>
+              <td>Borrower Name</td>
+              <td><%= @loan_account.borrower_name %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div id='new-pay-account-content'>
+      <%= render partial: 'new_pay_account_modal' %>
+    </div>
+
+    <div class="panel-heading">
+      <h3>
         Pay Accounts
       </h3>
     </div>
@@ -14,28 +42,21 @@
               <th>Account Type</th>
               <th>Account Number</th>
               <th>
-                <button type="button" class="btn btn-success">Create</button>
+                <button type="button" class="btn btn-success" id="new-pay-account-button">Create</button>
               </th>
             </tr>
           </thead>
-          <tbody>
-            <% @pay_accounts.each do |pay_account| %>
-              <tr>
-                <td><%= pay_account.nickname %></td>
-                <td><%= pay_account.account_type.humanize %></td>
-                <td>
-                  <%= pay_account.account_number %>
-                  <button type="button" class="btn btn-sm btn-default">hide</button>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-warning">Show</button>
-                  <button type="button" class="btn btn-danger">Delete</button>
-                </td>
-              </tr>
-            <% end %>
+          <tbody id="pay-accounts-tbody">
+            <%= render :partial => "pay_account_row", :collection => @pay_accounts, :as => :pay_account %>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 </div>
+
+<% content_for('head') do %>
+  <%= javascript_tag do %>
+    $(document).on('turbolinks:load', payAccountIndexReady);
+  <% end %>
+<% end %>

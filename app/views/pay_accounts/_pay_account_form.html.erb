@@ -1,0 +1,24 @@
+<%= form_for pay_account, remote: true do |f| %>
+  <% if pay_account.errors.any? %>
+    <div>
+      <% pay_account.errors.full_messages.each do |message| %>
+        <h3><%= message %></h3>
+      <%end%>
+    </div>
+  <%end%>
+  <div>
+    <%= f.label :nickname, "Nickname:" %>
+    <%= f.text_field :nickname %>
+  </div>
+  <div>
+    <%= f.label :account_number, "Account Number:" %>
+    <%= f.text_field :account_number %>
+  </div>
+  <div>
+    <%= f.label :account_type, "Account Type:" %>
+    <%= f.select :account_type, PayAccount.account_types %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

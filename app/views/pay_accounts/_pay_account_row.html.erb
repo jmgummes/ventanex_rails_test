@@ -1,0 +1,18 @@
+<tr>
+  <td><%= pay_account.nickname %></td>
+  <td><%= pay_account.account_type.humanize %></td>
+  <td>
+    <span>
+      <%= pay_account.account_number %>
+    </span>
+    <span style="display: none;">
+      <%= obfuscate_from_left(pay_account.account_number) %>
+    </span>
+    <button type="button" class="btn btn-sm btn-default obfuscation-button">hide</button>
+    <button type="button" class="btn btn-sm btn-default obfuscation-button" style="display: none;">show</button>
+  </td>
+  <td>
+    <button type="button" class="btn btn-warning">Show</button>
+    <button type="button" class="btn btn-danger">Delete</button>
+  </td>
+</tr>
